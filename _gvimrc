@@ -1,0 +1,24 @@
+"フォントの設定
+"set guifont=MS_Gothic:h9
+"set guifontwide=MS_Gothic:h9
+set guifont=Migu_1M:h10
+set guifontwide=Migu_1M:h10
+
+"カラースキームの設定
+syntax on
+" molokai のビジュアルモードが見辛いので色を変える
+autocmd colorscheme molokai highlight Visual ctermbg=8
+colorscheme molokai
+" 日本語入力ON時のカーソルの色を設定
+if has('multi_byte_ime') || has('xim')
+    highlight CursorIM guibg=DarkCyan guifg=NONE
+endif
+
+set t_Co=256
+"ウィンドウの透過度
+gui
+"set transparency=220
+
+" ウィンドウサイズを指定
+set columns=85
+set lines=400
