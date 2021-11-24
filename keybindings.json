@@ -1,0 +1,48 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入します
+[
+    // ctrl-pを補完に充てる
+    { "key": "ctrl+p", "command": "-workbench.action.quickOpen" },
+    {
+        "key": "ctrl+p",
+        "command": "editor.action.triggerSuggest"
+    },
+    // サイドバーを閉じる
+    {
+        "key": "ctrl+[",
+        "command": "workbench.action.closeSidebar",
+        "when": "sideBarFocus"
+    },
+    // 補完の時の選択
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen",
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen ",
+    },
+    // 検索結果の移動
+    {
+        "key": "ctrl+n",
+        "command": "search.action.focusNextSearchResult",
+        "when": "hasSearchResult || inSearchEditor"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "search.action.focusPreviousSearchResult",
+        "when": "hasSearchResult || inSearchEditor"
+    },
+
+]

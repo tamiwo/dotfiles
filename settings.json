@@ -1,0 +1,130 @@
+{
+    // フォントサイズ
+    "editor.fontSize": 12,
+    //minimap非表示 
+    "editor.minimap.enabled": false,
+    "workbench.editor.untitled.hint": "hidden",
+    //大量のタブを開いたときにもすべてのタブを表示する
+    "workbench.editor.tabSizing": "shrink",
+    //検索結果に行番号を表示する
+    "search.showLineNumbers": true,
+	// インデント個別設定
+	"[markdown]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true
+	},
+
+    // InsertDateString設定
+    "insertDateString.format": "YYYY/MM/DD hh:mm:ss",
+    "insertDateString.formatDate": "YYYY/MM/DD",
+    "insertDateString.formatTime": "hh:mm",
+
+
+    "C_Cpp.vcFormat.space.removeBeforeSemicolon": false,
+
+    //無名レジスタとクリップボードを同期する。
+    "vim.useSystemClipboard": true,
+    //検索結果をハイライトする
+    "vim.hlsearch": true,
+    //行を越えて移動する
+    "vim.whichwrap": "h,l,<,>,[,]",
+    //vimのモード毎にステータスバーをカラー表示する
+    //https://qiita.com/karlley/items/8c6e1c2637be283e6b4d
+    "vim.statusBarColorControl": true,
+    //ステータスバーの色
+    "workbench.colorCustomizations": {
+		"statusBar.background": "#005f5f",
+		"statusBar.noFolderBackground": "#005f5f",
+		"statusBar.debuggingBackground": "#005f5f"
+	},
+    //括弧などで囲う機能
+    "vim.surround": true,
+    // Map Leaderキー
+    "vim.leader": "<space>",
+    //ノーマルモードに戻った時にIMEを半角英数入力にする
+    //https://qiita.com/iuchi/items/9ddcfb48063fc5ab626c
+    "vim.autoSwitchInputMethod.enable": true,
+    "vim.autoSwitchInputMethod.defaultIM": "0",
+    "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\Tools\\zenhan.exe",
+    "vim.autoSwitchInputMethod.switchIMCmd": "C:\\Tools\\zenhan.exe {im}",
+
+    //nnoremap ノーマルモードでのキーバインド
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // 検索結果を真ん中に
+        {"before": ["n"],"after": ["n","z","z"]}, 
+        {"before": ["N"],"after": ["N","z","z"]}, 
+        {"before": ["*"],"after": ["*","z","z"]}, 
+        {"before": ["#"],"after": ["#","z","z"]}, 
+        // 行末までコピー
+        {"before": ["Y"],"after": ["y","$"]}, 
+        // undoとredoを標準のCtrl-z Ctrl-Z と同じに
+        {"before" : ["u"],"commands" : ["undo"]},
+        {"before" : ["<C-r>"],"commands" : ["redo"]},
+        // tキーの動作なし
+        {"before": ["t"],"after": [""]}, 
+        {"before": ["T"],"after": [""]}, 
+        // 線引く
+        {"before": ["t","l"],"after": ["<ESC>","o","<ESC>","7","0","i","-","<ESC>","0"]}, 
+        {"before": ["t","L"],"after": ["<ESC>","O","<ESC>","7","0","i","-","<ESC>","0"]}, 
+        {"before": ["T","l"],"after": ["<ESC>","o","<ESC>","7","0","i","=","<ESC>","0"]}, 
+        {"before": ["T","L"],"after": ["<ESC>","O","<ESC>","7","0","i","=","<ESC>","0"]}, 
+        // 現在時刻
+        {"before": ["t", "o"],"commands": [{"command": "insertDateString.insertTime"}]}, 
+        {"before": ["t", "d"],"commands": [{"command": "insertDateString.insertDate"}]}, 
+        // sキーに動作を割り当てない
+        {"before": ["s"],"after": [""]}, 
+        // エクスプローラを開く
+        {"before": ["s", "e"],"commands": [{"command": "workbench.view.explorer"}]}, 
+        // サイドバーの表示状態トグル
+        {"before": ["s", "b"],"commands": [{"command": "workbench.action.toggleSidebarVisibility"}]}, 
+        // エディタのタブ切替
+        {"before": ["s", "n"],"commands": [{"command": "workbench.action.nextEditorInGroup"}]}, 
+        {"before": ["s", "p"],"commands": [{"command": "workbench.action.previousEditorInGroup"}]}, 
+        // エディタグループの切替
+        {"before": ["s", "j"],"commands": [{"command": "workbench.action.focusBelowGroup"}]}, 
+        {"before": ["s", "k"],"commands": [{"command": "workbench.action.focusAboveGroup"}]}, 
+        {"before": ["s", "h"],"commands": [{"command": "workbench.action.focusLeftGroup"}]}, 
+        {"before": ["s", "l"],"commands": [{"command": "workbench.action.focusRightGroup"}]}, 
+        // エディタのグループ移動
+        {"before": ["s", "J"],"commands": [{"command": "workbench.action.moveEditorToBelowGroup"}]}, 
+        {"before": ["s", "K"],"commands": [{"command": "workbench.action.moveEditorToAboveGroup"}]}, 
+        {"before": ["s", "H"],"commands": [{"command": "workbench.action.moveEditorToLeftGroup"}]}, 
+        {"before": ["s", "L"],"commands": [{"command": "workbench.action.moveEditorToRightGroup"}]}, 
+        // エディタ分割
+        {"before": ["s", "s"],"commands": [":split"]}, 
+        {"before": ["s", "v"],"commands": [":vsplit"]}, 
+		// エディタの幅
+        {"before": ["s", "-"],"commands": [{"command": "workbench.action.decreaseViewWidth"}]}, 
+        {"before": ["s", ";"],"commands": [{"command": "workbench.action.increaseViewWidth"}]}, 
+		// エディタ高さ
+        {"before": ["s", "="],"commands": [{"command": "workbench.action.decreaseViewHeight"}]}, 
+        {"before": ["s", "+"],"commands": [{"command": "workbench.action.increaseViewWidth"}]}, 
+        // 新規タブ
+        {"before": ["s", "t"],"commands": [":tabnew"]}, 
+		// markdownPreview
+        {"before": ["s", "]"],"commands": [{"command": "markdown-preview-enhanced.openPreviewToTheSide"}]}, 
+        // ハイライトを消す
+        {"before": ["<Leader>", "<C-]>"],"commands": [":noh"]}, 
+        // コマンドパレットを開く
+        {"before": ["<Leader>", "<space>"],"commands": [{"command": "workbench.action.showCommands"}]}, 
+        // 今日の日付
+        {"before": ["<Leader>", ";"],"commands": [{"command": "insertDateString.insertDate"}]}, 
+        // 現在時刻
+        {"before": ["<Leader>", ":"],"commands": [{"command": "insertDateString.insertTime"}]}, 
+        // 定義の表示
+        {"before": ["<Leader>", "d"],"commands": [{"command": "editor.action.peekDefinition"}]}, 
+        // setting.jsonを開く
+        {"before": ["<Leader>", ","],"commands": [{"command": "workbench.action.openSettingsJson"}]}, 
+        {"before": ["<Leader>", "<"],"commands": [{"command": "workbench.action.openSettings"}]}, 
+        // keybinding.jsonを開く
+        {"before": ["<Leader>", "."],"commands": [{"command": "workbench.action.openGlobalKeybindingsFile"}]}, 
+        {"before": ["<Leader>", ">"],"commands": [{"command": "workbench.action.openGlobalKeybindings"}]}, 
+    ],
+	// インサートモードでのキーバインド
+    "vim.insertModeKeyBindingsNonRecursive": [
+    ],
+    "editor.renderWhitespace": "all",
+    "C_Cpp.default.cStandard": "c99",
+    "editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+}
