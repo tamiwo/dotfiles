@@ -62,8 +62,9 @@ windowsの変更する前に最初にやる
 
 ### アプリ
 
-#### インスタグラムされているアプリ
+#### プリインストールされているアプリ
 * 削除
+  * ニュース
   * Family
   * Cortana
   * People
@@ -99,8 +100,15 @@ New-Item 'HKCU:\Software\Policies\Microsoft\Windows\Explorer'
 New-ItemProperty -LiteralPath 'HKCU:\Software\Policies\Microsoft\Windows\Explorer' -Name 'DisableSearchBoxSuggestions' -PropertyType 'DWord' -Value 1
 ```
 
+## 右クリックメニューを以前の表示に戻す
 
-### ユーザー アカウント制御の設定
+``` powershell(管理者権限)
+New-Item 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}'
+New-Item 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InProcServer32'
+New-ItemProperty -LiteralPath 'HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InProcServer32' -Name '(default)'
+```
+
+## ユーザー アカウント制御の設定
 
 * プログラムがコンピューターに変更を加えようとする場合のみ通知する (デスクトップを暗転しない)
 
@@ -200,3 +208,22 @@ Apple TV経由でWindowsの画面をTV出力する
 ```
 wsl --install
 ```
+
+## discord
+
+### install
+```
+scoop install discord
+```
+
+## ChengeKey
+
+キーボードのマップ変更
+
+### download
+
+[「Change Key」非常駐型でフリーのキー配置変更ソフト - 窓の杜](https://forest.watch.impress.co.jp/library/software/changekey/)
+
+### 変更箇所
+  * caps lockをF13に
+    * AutoHotKey で別途利用
